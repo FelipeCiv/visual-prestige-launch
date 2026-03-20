@@ -1,10 +1,18 @@
 import ScrollReveal from "./ScrollReveal";
+import cafeAurora from "@/assets/portfolio/cafe-aurora.jpg";
+import fitnessPro from "@/assets/portfolio/fitness-pro.jpg";
+import beautyStudio from "@/assets/portfolio/beauty-studio.jpg";
+import techSolutions from "@/assets/portfolio/tech-solutions.jpg";
+import restauranteSabor from "@/assets/portfolio/restaurante-sabor.jpg";
+import fashionBrand from "@/assets/portfolio/fashion-brand.jpg";
 
 const projects = [
-  { title: "Lux Cosméticos", category: "Social Media & Branding", metric: "+340% engajamento" },
-  { title: "Estúdio Noir", category: "Identidade Visual", metric: "12k seguidores em 3 meses" },
-  { title: "Vértice Arquitetura", category: "Tráfego Pago & Conteúdo", metric: "R$ 2.8M em leads" },
-  { title: "Maison Gastrô", category: "Stories & Reels", metric: "+520% alcance orgânico" },
+  { title: "Café Aurora", category: "Branding & Social Media", image: cafeAurora },
+  { title: "Fitness Pro", category: "Instagram Stories", image: fitnessPro },
+  { title: "Beauty Studio", category: "Design & Marketing", image: beautyStudio },
+  { title: "Tech Solutions", category: "Gestão Completa", image: techSolutions },
+  { title: "Restaurante Sabor", category: "Reels & Stories", image: restauranteSabor },
+  { title: "Fashion Brand", category: "Social Media Strategy", image: fashionBrand },
 ];
 
 const Portfolio = () => {
@@ -22,24 +30,31 @@ const Portfolio = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 0.1}>
-              <div className="group relative border border-border p-10 md:p-14 hover:border-accent/40 transition-all duration-500 glow-navy overflow-hidden">
-                <div className="absolute top-0 left-0 h-px bg-accent w-0 group-hover:w-full transition-all duration-700" />
-                
-                <span className="text-xs font-body tracking-[0.3em] uppercase text-muted-foreground">
-                  {project.category}
-                </span>
-                <h3 className="font-display text-3xl md:text-4xl font-light text-foreground mt-3 mb-6">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-8 bg-accent" />
-                  <span className="font-body text-sm text-accent font-medium">
-                    {project.metric}
+            <ScrollReveal key={project.title} delay={i * 0.08}>
+              <div className="group relative aspect-square overflow-hidden cursor-pointer">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {/* Dark gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+
+                {/* Text at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <span className="text-[10px] font-body tracking-[0.3em] uppercase text-accent">
+                    {project.category}
                   </span>
+                  <h3 className="font-display text-xl md:text-2xl font-light text-foreground mt-1">
+                    {project.title}
+                  </h3>
                 </div>
+
+                {/* Hover border accent */}
+                <div className="absolute inset-0 border border-transparent group-hover:border-accent/30 transition-colors duration-500" />
               </div>
             </ScrollReveal>
           ))}
