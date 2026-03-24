@@ -20,7 +20,7 @@ const Contact = () => {
                 Vamos conversar
               </span>
               <h2 className="font-display text-4xl md:text-5xl font-light mt-4 text-gradient">
-                Inicie seu projeto
+                Envie sua ideia
               </h2>
             </div>
           </ScrollReveal>
