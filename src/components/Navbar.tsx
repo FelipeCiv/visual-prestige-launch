@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const navItems = ["Serviços", "Portfólio", "Sobre", "Contato"];
+const navItems = ["Serviços", "Portfólio", "Depoimentos", "Contato"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ const Navbar = () => {
             <li key={item}>
               <button
                 onClick={() => scrollTo(item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}
-                className="text-sm font-body tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="text-sm font-medium font-body text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {item}
               </button>
@@ -33,7 +33,7 @@ const Navbar = () => {
 
         <button
           onClick={() => scrollTo("contato")}
-          className="hidden md:block text-sm font-body tracking-widest uppercase px-6 py-2.5 border border-silver/30 text-foreground hover:bg-accent hover:border-accent transition-all duration-300 active:scale-[0.97]"
+          className="hidden md:block text-sm font-medium font-body px-6 py-2 border border-border bg-transparent hover:bg-secondary rounded-full text-foreground transition-all duration-300 active:scale-[0.97]"
         >
           Fale Conosco
         </button>

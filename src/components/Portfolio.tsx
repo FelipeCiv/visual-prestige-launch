@@ -17,23 +17,23 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-32 bg-card">
+    <section id="portfolio" className="py-32 bg-background">
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-20">
             <span className="text-xs font-body tracking-[0.4em] uppercase text-muted-foreground">
               Resultados
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-light mt-4 text-gradient">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 text-white">
               Portfólio Selecionado
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
             <ScrollReveal key={project.title} delay={i * 0.08}>
-              <div className="group relative aspect-square overflow-hidden cursor-pointer">
+              <div className="group relative aspect-[4/5] sm:aspect-square overflow-hidden cursor-pointer rounded-3xl">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -41,20 +41,20 @@ const Portfolio = () => {
                   loading="lazy"
                 />
                 {/* Dark gradient overlay at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050814]/90 via-[#050814]/30 to-transparent" />
 
                 {/* Text at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="text-[10px] font-body tracking-[0.3em] uppercase text-accent">
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <span className="text-xs font-bold font-body uppercase text-primary mb-2 block">
                     {project.category}
                   </span>
-                  <h3 className="font-display text-xl md:text-2xl font-light text-foreground mt-1">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-white">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Hover border accent */}
-                <div className="absolute inset-0 border border-transparent group-hover:border-accent/30 transition-colors duration-500" />
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-3xl transition-colors duration-500 pointer-events-none" />
               </div>
             </ScrollReveal>
           ))}
