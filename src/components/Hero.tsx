@@ -70,7 +70,23 @@ const Hero = () => {
         >
           Sua Marca
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">Elevada.</span>
+          <span className="relative inline-block group cursor-default">
+            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:from-blue-300 group-hover:to-blue-500 group-hover:drop-shadow-[0_0_50px_rgba(59,130,246,0.8)] transition-all duration-500">
+              Elevada.
+            </span>
+            <motion.div
+              initial={{ x: "-100%", opacity: 0 }}
+              whileHover={{ 
+                x: ["-100%", "200%"],
+                opacity: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: 0.8, 
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 z-20 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full pointer-events-none"
+            />
+          </span>
         </motion.h1>
 
         <motion.p
