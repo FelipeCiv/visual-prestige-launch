@@ -1,10 +1,10 @@
 import ScrollReveal from "./ScrollReveal";
-import cafeAurora from "@/assets/portfolio/cafe-aurora.jpg";
-import fitnessPro from "@/assets/portfolio/fitness-pro.jpg";
-import beautyStudio from "@/assets/portfolio/beauty-studio.jpg";
-import techSolutions from "@/assets/portfolio/tech-solutions.jpg";
-import restauranteSabor from "@/assets/portfolio/restaurante-sabor.jpg";
-import fashionBrand from "@/assets/portfolio/fashion-brand.jpg";
+import cafeAurora from "@/assets/portfolio/cafe_aurora.png";
+import fitnessPro from "@/assets/portfolio/fitness_pro.png";
+import beautyStudio from "@/assets/portfolio/beauty_studio.png";
+import techSolutions from "@/assets/portfolio/tech_solutions.png";
+import restauranteSabor from "@/assets/portfolio/restaurante_sabor.png";
+import fashionBrand from "@/assets/portfolio/fashion_brand.png";
 
 const projects = [
   { title: "Café Aurora", category: "Branding & Social Media", image: cafeAurora },
