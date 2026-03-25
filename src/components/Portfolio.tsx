@@ -21,9 +21,10 @@ const Portfolio = () => {
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-20">
-            <span className="text-xs font-body tracking-[0.4em] uppercase text-muted-foreground">
-              Resultados
-            </span>
+            <div className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-bold text-white mb-6 backdrop-blur-md overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-full -translate-x-[150%] animate-[shimmer_2.5s_infinite]" />
+              Resultados Práticos
+            </div>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 text-white">
               Portfólio Selecionado
             </h2>
@@ -53,8 +54,9 @@ const Portfolio = () => {
                   </h3>
                 </div>
 
-                {/* Hover border accent */}
+                {/* Hover border accent & glow */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-3xl transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500 pointer-events-none" />
               </div>
             </ScrollReveal>
           ))}

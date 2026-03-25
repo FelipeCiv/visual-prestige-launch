@@ -18,7 +18,8 @@ const Contact = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-20">
-            <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-border bg-secondary/50 text-xs font-bold text-muted-foreground mb-6">
+            <div className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-bold text-white mb-6 backdrop-blur-md overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-full -translate-x-[150%] animate-[shimmer_2.5s_infinite]" />
               Contato
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-white max-w-4xl mx-auto leading-tight">
@@ -77,8 +78,10 @@ const Contact = () => {
 
           {/* Right Column: Form */}
           <ScrollReveal delay={0.2}>
-            <div className="bg-[#0B1120] border border-border rounded-3xl p-8 lg:p-10 shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="relative bg-[#0B1120]/80 backdrop-blur-xl border border-border rounded-3xl p-8 lg:p-10 shadow-2xl group hover:border-primary/30 transition-colors duration-500">
+              {/* Subtle pulsing glow */}
+              <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                 
                 <div className="space-y-2">
                   <label className="text-xs font-bold font-body text-muted-foreground tracking-wider">NOME COMPLETO</label>
@@ -87,7 +90,7 @@ const Contact = () => {
                     placeholder="Seu nome"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-[#151D2C] border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
                   />
                 </div>
 
@@ -98,7 +101,7 @@ const Contact = () => {
                     placeholder="seu@email.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-[#151D2C] border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
                   />
                 </div>
 
@@ -109,7 +112,7 @@ const Contact = () => {
                     placeholder="(00) 00000-0000"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-[#151D2C] border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
                   />
                 </div>
 
@@ -120,16 +123,19 @@ const Contact = () => {
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-[#151D2C] border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300 resize-none"
                   />
                 </div>
 
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all duration-300 active:scale-[0.98]"
+                    className="relative group w-full flex items-center justify-center gap-3 px-8 py-4 bg-primary/20 border border-primary/50 text-white font-bold rounded-xl hover:bg-primary/30 transition-all duration-300 overflow-hidden active:scale-[0.98]"
                   >
-                    Enviar Mensagem <Send size={18} className="translate-y-px" />
+                    <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
+                    <span className="relative flex items-center gap-3">
+                      Enviar Mensagem <Send size={18} className="translate-y-px group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </span>
                   </button>
                 </div>
                 

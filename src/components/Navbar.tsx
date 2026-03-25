@@ -14,7 +14,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-primary/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+      {/* Subtle glow edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
         <img src={logo} alt="Visual Agência" className="h-10 w-auto" />
 
@@ -33,9 +35,10 @@ const Navbar = () => {
 
         <button
           onClick={() => scrollTo("contato")}
-          className="hidden md:block text-sm font-medium font-body px-6 py-2 border border-border bg-transparent hover:bg-secondary rounded-full text-foreground transition-all duration-300 active:scale-[0.97]"
+          className="hidden md:block relative group text-sm font-medium font-body px-6 py-2 border border-primary/30 bg-primary/10 rounded-full text-white transition-all duration-300 hover:bg-primary/20 hover:border-primary/50 overflow-hidden active:scale-[0.97]"
         >
-          Fale Conosco
+          <div className="absolute inset-0 bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500" />
+          <span className="relative z-10">Fale Conosco</span>
         </button>
 
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
@@ -49,7 +52,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-primary/20 overflow-hidden"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {navItems.map((item) => (

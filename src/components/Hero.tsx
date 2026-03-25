@@ -3,10 +3,46 @@ import { Sparkles, ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-40">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-40 bg-background">
+      {/* Dynamic Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.3, 0.15],
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-primary/20 blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.1, 0.25, 0.1],
+            x: [0, -40, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-500/20 blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.15, 0.25, 0.15],
+            y: [0, -40, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-[20%] left-[20%] w-[70vw] h-[50vw] rounded-full bg-accent/10 blur-[120px]"
+        />
+      </div>
+
       {/* Grid Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-      <div className="absolute inset-0 bg-background/50" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      
+      {/* Vignette effect for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-80 pointer-events-none" />
+      <div className="absolute inset-0 bg-background/20 mix-blend-multiply pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-6 text-center mt-12 md:mt-20">
         <motion.div
@@ -15,9 +51,14 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="flex justify-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/40 text-sm font-medium text-muted-foreground">
-            <Sparkles size={16} className="text-primary" />
-            <span>Agência Premium de Marketing Digital</span>
+          <div className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium backdrop-blur-md overflow-hidden group">
+            <motion.div 
+               animate={{ x: ["-100%", "200%"] }}
+               transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-1/2"
+            />
+            <Sparkles size={16} className="text-primary relative z-10" />
+            <span className="text-white/90 relative z-10">Agência Premium de Marketing Digital</span>
           </div>
         </motion.div>
 
@@ -29,7 +70,7 @@ const Hero = () => {
         >
           Sua Marca
           <br />
-          <span className="text-primary">Elevada.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">Elevada.</span>
         </motion.h1>
 
         <motion.p
@@ -50,9 +91,12 @@ const Hero = () => {
         >
           <button
             onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
-            className="group flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-900/40 border border-blue-500/20 text-white font-medium rounded-full hover:bg-blue-900/60 transition-all duration-300"
+            className="relative group flex items-center justify-center gap-2 px-8 py-3.5 bg-primary/20 border border-primary/50 text-white font-medium rounded-full hover:bg-primary/30 transition-all duration-300 overflow-hidden"
           >
-            Iniciar Projeto <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
+            <span className="relative flex items-center gap-2">
+              Iniciar Projeto <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </span>
           </button>
           <button
             onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
@@ -68,8 +112,10 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-0 w-full border-t border-border bg-background/80 backdrop-blur-md"
+        className="absolute bottom-0 w-full border-t border-primary/20 bg-background/80 backdrop-blur-md"
       >
+        {/* Subtle glow on the top edge */}
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
         <div className="container mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
             {[
