@@ -1,42 +1,91 @@
-import { Instagram, Palette, BarChart3, Megaphone, Camera, PenTool } from "lucide-react";
+import { 
+  Instagram, 
+  Camera, 
+  Palette, 
+  Globe, 
+  Film, 
+  MonitorPlay, 
+  Video, 
+  Radio, 
+  BarChart3, 
+  Rocket, 
+  Scissors, 
+  Aperture 
+} from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const services = [
   {
     icon: Instagram,
-    title: "Stories & Reels",
-    desc: "Narrativas visuais que capturam a essência da sua marca e convertem audiência em resultados reais.",
+    title: "Social Media",
+    desc: "Gestão completa de redes sociais, focada em engajamento, conexão e construção de autoridade digital da sua marca.",
     number: "01",
   },
   {
-    icon: Palette,
-    title: "Design de Alto Padrão",
-    desc: "Identidade visual e artes exclusivas que posicionam sua marca no mais alto nível do mercado.",
+    icon: Camera,
+    title: "Filmmaker e Fotógrafo",
+    desc: "Produção de fotos e vídeos de altíssimo padrão, pensados para valorizar a sua imagem e a do seu negócio.",
     number: "02",
   },
   {
-    icon: BarChart3,
-    title: "Gestão de Redes Sociais",
-    desc: "Estratégia editorial completa, com voz, estética e consistência para construir autoridade digital.",
+    icon: Palette,
+    title: "Design",
+    desc: "Artes visuais e materiais gráficos que transmitem profissionalismo e se destacam em qualquer plataforma.",
     number: "03",
   },
   {
-    icon: Camera,
-    title: "Produção Audiovisual",
-    desc: "Vídeos e conteúdos cinematográficos que destacam os diferenciais únicos do seu negócio.",
+    icon: Globe,
+    title: "Criação de Sites e Páginas",
+    desc: "Desenvolvimento de sites institucionais e landing pages de vendas otimizadas para a mais alta conversão.",
     number: "04",
   },
   {
-    icon: Megaphone,
-    title: "Tráfego & Performance",
-    desc: "Campanhas pagas de alta conversão que ampliam o alcance e trazem clientes qualificados.",
+    icon: Film,
+    title: "Edição de Vídeos",
+    desc: "Edições dinâmicas para anúncios, reels, youtube e materiais institucionais, retendo a atenção do seu público.",
     number: "05",
   },
   {
-    icon: PenTool,
-    title: "Relatórios & Insights",
-    desc: "Inteligência de dados para tomadas de decisão que potencializam seus resultados online.",
+    icon: MonitorPlay,
+    title: "Painel de LED",
+    desc: "Configuração completa e operação ao vivo de painel de LED para proporcionar experiências visuais imersivas.",
     number: "06",
+  },
+  {
+    icon: Video,
+    title: "Câmeras para Eventos",
+    desc: "Equipe de operadores de câmera qualificados para captar cada momento e detalhe do seu evento ao vivo.",
+    number: "07",
+  },
+  {
+    icon: Radio,
+    title: "Transmissão ao Vivo",
+    desc: "Streaming profissional (OBS ou vMix) para eventos, palestras e cultos com a máxima estabilidade e qualidade.",
+    number: "08",
+  },
+  {
+    icon: BarChart3,
+    title: "Gestão de Tráfego",
+    desc: "Anúncios e campanhas otimizadas que geram leads qualificados e potencializam suas vendas diárias.",
+    number: "09",
+  },
+  {
+    icon: Rocket,
+    title: "Estratégia de Lançamentos",
+    desc: "Planejamento e estruturação de funis de vendas para lançamentos de produtos ou produtos perpétuos.",
+    number: "10",
+  },
+  {
+    icon: Scissors,
+    title: "Operação de Cortes (DTV)",
+    desc: "Direção de imagem e cortes precisos ao vivo, tornando a sua transmissão extremamente dinâmica e profissional.",
+    number: "11",
+  },
+  {
+    icon: Aperture,
+    title: "Captação de Eventos",
+    desc: "Casamentos, festas de 15, empresariais, shows, corporativos e chá revelação. Registramos o inesquecível.",
+    number: "12",
   },
 ];
 
@@ -63,7 +112,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.08}>
-              <div className="relative bg-[#0B1120]/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:bg-[#0B1120] hover:border-primary/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500 h-full overflow-hidden group">
+              <div className="relative bg-[#0B1120]/80 backdrop-blur-sm border border-border/50 rounded-3xl p-6 md:p-8 hover:bg-[#0B1120] hover:border-primary/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500 h-full overflow-hidden group">
                 {/* Glow behind card on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
