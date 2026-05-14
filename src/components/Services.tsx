@@ -11,7 +11,8 @@ import {
   BarChart3, 
   Rocket, 
   Scissors, 
-  Aperture 
+  Aperture,
+  ArrowRight
 } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
@@ -103,7 +104,7 @@ const Services = () => {
 
   return (
     <section id="servicos" className="py-32 relative bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-5xl">
         <ScrollReveal>
           <div className="text-center mb-16 relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full pointer-events-none -z-10" />
@@ -138,25 +139,26 @@ const Services = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col">
           {filteredServices.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 0.08}>
-              <div className="relative bg-[#0B1120]/80 backdrop-blur-sm border border-border/50 rounded-3xl p-6 md:p-8 hover:bg-[#0B1120] hover:border-primary/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500 h-full overflow-hidden group">
-                {/* Glow behind card on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors duration-300">
-                  <div className="absolute inset-0 bg-primary/20 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <service.icon size={24} className="text-primary relative z-10" />
+            <ScrollReveal key={service.title} delay={i * 0.1}>
+              <div className="group border-b border-white/5 py-8 first:border-t hover:border-primary/30 transition-colors flex flex-col md:flex-row md:items-center gap-6 cursor-default">
+                <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 group-hover:bg-primary/20 text-white group-hover:text-primary transition-colors shrink-0">
+                  <service.icon size={28} />
                 </div>
                 
-                <h3 className="font-display text-2xl font-bold text-white mb-4">
-                  {service.title}
-                </h3>
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-3xl">
+                    {service.desc}
+                  </p>
+                </div>
                 
-                <p className="font-body text-[15px] text-muted-foreground leading-relaxed font-medium">
-                  {service.desc}
-                </p>
+                <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full border border-white/10 group-hover:border-primary/30 text-white/20 group-hover:text-primary transition-all group-hover:translate-x-2">
+                  <ArrowRight size={18} />
+                </div>
               </div>
             </ScrollReveal>
           ))}
