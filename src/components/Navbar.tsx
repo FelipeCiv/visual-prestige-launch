@@ -55,7 +55,7 @@ const Navbar = () => {
             className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-primary/20 overflow-hidden"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
-              {navItems.map((item) => (
+              {navItems.filter(item => item !== "Portfólio").map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollTo(item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}

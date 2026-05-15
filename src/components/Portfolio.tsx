@@ -17,7 +17,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-32 bg-background">
+    <section id="portfolio" className="hidden md:block py-32 bg-background">
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-20">

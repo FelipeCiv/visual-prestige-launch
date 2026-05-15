@@ -117,7 +117,7 @@ const Hero = () => {
           </button>
           <button
             onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 border border-border/50 text-foreground font-bold rounded-xl hover:bg-white/5 transition-all duration-300"
+            className="hidden sm:block px-8 py-4 border border-border/50 text-foreground font-bold rounded-xl hover:bg-white/5 transition-all duration-300"
           >
             Ver Portfólio
           </button>
