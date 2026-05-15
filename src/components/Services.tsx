@@ -122,14 +122,14 @@ const Services = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-20">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                className={`px-8 py-4 rounded-2xl text-sm font-bold transition-all duration-300 ${
                   activeCategory === cat.id
-                    ? "bg-primary text-white shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-primary/50"
+                    ? "bg-primary text-white shadow-[0_10px_20px_rgba(59,130,246,0.3)] border border-primary/50 scale-105"
                     : "bg-[#0B1120] text-muted-foreground border border-border/50 hover:border-primary/30 hover:text-white"
                 }`}
               >
@@ -139,10 +139,10 @@ const Services = () => {
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2">
           {filteredServices.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.1}>
-              <div className="group border-b border-white/5 py-8 first:border-t hover:border-primary/30 transition-colors flex flex-col md:flex-row md:items-center gap-6 cursor-default">
+              <div className="group border-b border-white/5 py-10 first:border-t hover:border-primary/30 transition-colors flex flex-col md:flex-row md:items-center gap-8 cursor-default">
                 <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 group-hover:bg-primary/20 text-white group-hover:text-primary transition-colors shrink-0">
                   <service.icon size={28} />
                 </div>

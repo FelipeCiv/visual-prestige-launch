@@ -3,7 +3,7 @@ import { Sparkles, ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-40 bg-background">
+    <section className="relative min-h-[100dvh] flex flex-col bg-background overflow-x-hidden">
       {/* Dynamic Animated Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -44,21 +44,22 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-80 pointer-events-none" />
       <div className="absolute inset-0 bg-background/20 mix-blend-multiply pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 text-center mt-12 md:mt-20">
+      {/* Main Content Container */}
+      <div className="relative z-10 container mx-auto px-6 flex-grow flex flex-col items-center justify-center pt-32 pb-20 md:pt-40 md:pb-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-6 md:mb-8"
         >
-          <div className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium backdrop-blur-md overflow-hidden group">
+          <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 bg-primary/10 text-[10px] sm:text-sm font-medium backdrop-blur-md overflow-hidden group">
             <motion.div 
                animate={{ x: ["-100%", "200%"] }}
                transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-1/2"
             />
-            <Sparkles size={16} className="text-primary relative z-10" />
-            <span className="text-white/90 relative z-10">Agência Premium de Marketing Digital</span>
+            <Sparkles size={14} className="text-primary relative z-10" />
+            <span className="text-white/90 relative z-10 uppercase tracking-widest font-bold">Agência Premium</span>
           </div>
         </motion.div>
 
@@ -66,7 +67,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] font-bold leading-[1.05] tracking-tight text-white mb-6"
+          className="font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7rem] font-bold leading-[1.1] tracking-tight text-white mb-6"
         >
           Sua Marca
           <br />
@@ -93,7 +94,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-body text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          className="font-body text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-4"
         >
           Estratégia, design e conteúdo de alto impacto para marcas que buscam
           <br className="hidden md:block" /> excelência nas redes sociais.
@@ -103,11 +104,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-[280px] sm:max-w-none"
         >
           <button
             onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
-            className="relative group flex items-center justify-center gap-2 px-8 py-3.5 bg-primary/20 border border-primary/50 text-white font-medium rounded-full hover:bg-primary/30 transition-all duration-300 overflow-hidden"
+            className="relative group flex items-center justify-center gap-2 px-8 py-4 bg-primary/20 border border-primary/50 text-white font-bold rounded-xl hover:bg-primary/30 transition-all duration-300 overflow-hidden"
           >
             <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
             <span className="relative flex items-center gap-2">
@@ -116,7 +117,7 @@ const Hero = () => {
           </button>
           <button
             onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 border border-border text-foreground font-medium rounded-full hover:bg-secondary transition-all duration-300"
+            className="px-8 py-4 border border-border/50 text-foreground font-bold rounded-xl hover:bg-white/5 transition-all duration-300"
           >
             Ver Portfólio
           </button>
@@ -128,21 +129,30 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-0 w-full border-t border-primary/20 bg-background/80 backdrop-blur-md"
+        className="relative md:absolute md:bottom-0 w-full border-t border-primary/20 bg-background/80 backdrop-blur-md"
       >
         {/* Subtle glow on the top edge */}
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
-        <div className="container mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
+        <div className="container mx-auto px-0 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { value: "150+", label: "CLIENTES ATIVOS" },
               { value: "2M+", label: "ALCANCE MENSAL" },
               { value: "500+", label: "PROJETOS ENTREGUES" },
               { value: "98%", label: "SATISFAÇÃO" },
             ].map((stat, i) => (
-              <div key={i} className="text-center pl-0 md:first:pl-0 pl-8">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-xs font-bold tracking-[0.2em] text-muted-foreground">{stat.label}</div>
+              <div 
+                key={i} 
+                className={`
+                  text-center py-8 md:py-10 px-4
+                  ${i % 2 === 0 ? "border-r" : ""} 
+                  ${i < 2 ? "border-b" : ""}
+                  md:border-b-0 md:border-r md:last:border-r-0
+                  border-primary/10
+                `}
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -151,5 +161,7 @@ const Hero = () => {
     </section>
   );
 };
+
+export default Hero;
 
 export default Hero;
