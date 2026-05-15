@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const Contact = () => {
@@ -29,14 +29,7 @@ const Contact = () => {
           <ScrollReveal delay={0.1}>
             <div className="flex flex-col justify-center h-full space-y-12 lg:pl-10">
               <div className="space-y-8">
-                <div className="flex items-center gap-6 group cursor-pointer">
-                  <div className="w-14 h-14 rounded-2xl bg-[#0B1120] border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
-                    <Mail size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                  <span className="font-body text-muted-foreground font-medium group-hover:text-white transition-colors">
-                    contato@visualagencia.com.br
-                  </span>
-                </div>
+
                 
                 <div className="flex items-center gap-6 group cursor-pointer">
                   <div className="w-14 h-14 rounded-2xl bg-[#0B1120] border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
