@@ -1,15 +1,7 @@
-import { useState } from "react";
-import { Send, Mail, Phone, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // placeholder
-  };
-
   return (
     <section id="contato" className="py-32 bg-background relative overflow-hidden">
       {/* Background glow for aesthetics */}
@@ -51,7 +43,7 @@ const Contact = () => {
                     <Phone size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
                   <span className="font-body text-muted-foreground font-medium group-hover:text-white transition-colors">
-                    (11) 99999-9999
+                    (11) 98374-2911
                   </span>
                 </div>
 
@@ -76,70 +68,38 @@ const Contact = () => {
             </div>
           </ScrollReveal>
 
-          {/* Right Column: Form */}
+          {/* Right Column: WhatsApp CTA */}
           <ScrollReveal delay={0.2}>
-            <div className="relative bg-[#0B1120]/80 backdrop-blur-xl border border-border rounded-3xl p-8 lg:p-10 shadow-2xl group hover:border-primary/30 transition-colors duration-500">
+            <div className="relative bg-[#0B1120]/80 backdrop-blur-xl border border-border rounded-3xl p-8 lg:p-12 shadow-2xl group hover:border-[#25D366]/30 transition-colors duration-500 flex flex-col items-center justify-center text-center h-full min-h-[350px]">
               {/* Subtle pulsing glow */}
-              <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
+              <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-[#25D366]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              
+              <div className="relative z-10 space-y-6 w-full">
+                <div className="w-20 h-20 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center mx-auto mb-2">
+                  <MessageCircle size={36} />
+                </div>
                 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold font-body text-muted-foreground tracking-wider">NOME COMPLETO</label>
-                  <input
-                    type="text"
-                    placeholder="Seu nome"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
-                  />
-                </div>
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-white">
+                  Fale com a nossa equipe
+                </h3>
+                
+                <p className="text-muted-foreground font-body max-w-sm mx-auto">
+                  Tem um projeto em mente? Clique abaixo para conversar diretamente conosco pelo WhatsApp e receber um atendimento rápido.
+                </p>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold font-body text-muted-foreground tracking-wider">E-MAIL</label>
-                  <input
-                    type="email"
-                    placeholder="seu@email.com"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold font-body text-muted-foreground tracking-wider">TELEFONE</label>
-                  <input
-                    type="tel"
-                    placeholder="(00) 00000-0000"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold font-body text-muted-foreground tracking-wider">MENSAGEM</label>
-                  <textarea
-                    placeholder="Conte-nos sobre seu projeto..."
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-[#151D2C]/80 border border-border rounded-xl px-5 py-3.5 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300 resize-none"
-                  />
-                </div>
-
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    className="relative group w-full flex items-center justify-center gap-3 px-8 py-4 bg-primary/20 border border-primary/50 text-white font-bold rounded-xl hover:bg-primary/30 transition-all duration-300 overflow-hidden active:scale-[0.98]"
+                <div className="pt-6">
+                  <a
+                    href="https://wa.me/5511983742911"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative group/btn w-full flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#20bd5a] transition-all duration-300 overflow-hidden active:scale-[0.98] shadow-[0_0_20px_rgba(37,211,102,0.25)] hover:shadow-[0_0_30px_rgba(37,211,102,0.4)]"
                   >
-                    <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
-                    <span className="relative flex items-center gap-3">
-                      Enviar Mensagem <Send size={18} className="translate-y-px group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <span className="relative flex items-center gap-3 text-[15px] tracking-wide">
+                      Chamar no WhatsApp <MessageCircle size={20} className="group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
                     </span>
-                  </button>
+                  </a>
                 </div>
-                
-              </form>
+              </div>
             </div>
           </ScrollReveal>
         </div>
